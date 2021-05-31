@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let a = [1,8,5,9,4,3,7,2]
+		let b = [a[0]]
+		for(let i = 1; i<a.length; i++) {
+			for(let j = b.length-1; j >= 0; j--) {
+				if(a[i]>b[j]) {
+					b.splice(j+1,0,a[i])
+					break
+				}
+				if(j === 0) {
+					b.unshift(a[i])
+				}
+			}
+		}
+		console.log(b)
+		
+	</script>
+</html>

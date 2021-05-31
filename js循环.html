@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+	    * {
+	      margin: 0;
+	      padding: 0;
+	    }
+	
+	    .father {
+	      width: 50%;
+	      box-shadow: 0 0 10px rgb(31 55 153 / 10%);
+	      background: #FFF;
+	      padding: 20px;
+	    }
+	
+	    ul {
+	      display: flex;
+	      align-items: center;
+	      justify-content: flex-start;
+	      flex-wrap: wrap;
+	      margin: 0 -13px;
+	    }
+	
+	    ul div {
+	      box-sizing: border-box;
+	      width: 33.33%;
+	      padding: 0 13px;
+	      margin-bottom: 24px;
+	    }
+	
+	    ul div li {
+	      list-style: none;
+	      padding: 10px;
+	      border-radius: 4px;
+	      border: 1px solid #EBEDF0;
+	    }
+	
+	    .father .second {
+	      height: 100px;
+	      background: yellowgreen;
+	    }
+	  </style>
+	<body>
+		<div class="father">
+		    <ul>
+		      <div>
+		        <li>1111</li>
+		      </div>
+		      <div>
+		        <li>222</li>
+		      </div>
+		      <div>
+		        <li>333</li>
+		      </div>
+		      <div>
+		        <li>444</li>
+		      </div>
+		      <div>
+		        <li>555</li>
+		      </div>
+		    </ul>
+		    <div class="second">我是第二个子元素</div>
+		  </div>
+	</body>
+	<script type="text/javascript">
+		/* 1. map()方法定义在JavaScript的Array中，它返回一个新的数组，数组中的元素为原始数组调用函数处理后的值。 */
+		/* 2.filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。 */
+		/* 3.some() 方法用于检测数组中的元素是否满足指定条件（函数提供）。
+		  some() 方法会依次执行数组的每个元素：如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测。如果没有满足条件的元素，则返回false。 */
+		/* 4.every() 方法用于检测数组所有元素是否都符合指定条件（通过函数提供）。
+		  every() 方法使用指定函数检测数组中的所有元素：如果数组中检测到有一个元素不满足，则整个表达式返回 false ，且剩余的元素不会再进行检测。如果所有元素都满足条件，则返回 true。 */
+		/*5. educe() 方法接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。reduce() 可以作为一个高阶函数，用于函数的 compose。 */
+		/* 6.reduceRight() 方法的功能和 reduce()功能是一样的，不同的是 reduceRight() 从数组的末尾向前将数组中的数组项做累加。 */
+		/* 7. for in 循环阔以用来遍历对象的可枚举属性列表（包括[[Prototype]]链）。使用for in遍历对象无法直接获取到值，但是for of能取到值（前提对象本身定义了迭代器） */
+
+
+
+		let arr = [
+			{name: 'cy', age: 18},
+			{name: 'xiaoming', age: 28},
+			{name: 'zhangsan', age: 38}
+		]
+		/* for(let key in arr) {
+			console.log(key)  // ==> 0,1,2
+		} */
+		
+		// for of 主要是来操作迭代对象的  keys(), values(), entries()都是迭代对象
+		/* console.log(arr.keys().next())    // 0,1,2 获取key
+		console.log(arr.values().next())  // {name: 'cy', age: 18} 获取值
+		console.log(arr.entries().next()) // [0: 0, 1: {name: 'cy', age: 18} ] 获取key和值
+		let {done, value} = arr.entries().next() // 展开语法 
+		console.log(done) // false 这个指的是迭代的进度，迭代完成就是true
+		console.log(value) // [0: 0, 1: {name: 'cy', age: 18} ]
+			
+		for (let val of arr.values()) {
+			console.log(val)
+		}
+		
+			
+		for(let val of arr) {
+			console.log(val) // ==>{name: 'cy', age: 18}, {name: 'xiaoming', age: 28},{name: 'zhangsan', age: 38}
+		} */
+		
+		/* map()*/
+		// arr.map((val, index)=>{
+		// 	console.log(val)
+		// 	console.log(index)  // forEach 无法跳出循环， return和 break不起作用
+		// 	if(index <=1) {
+		// 		return;
+		// 	}
+		// })
+		// let a = [1,2,3] // 值类型，不会改变a对象
+		// let b = a.map((val, index) => {
+		// 	return val+=val
+		// })
+		// console.log(a) // [1,2,3]
+		// console.log(b) // [2,4,6]
+		// let newArr = arr.map((val) => {
+		// 	return Object.assign({sex: '男'}, val)  // 浅拷贝Object.assign
+		// })
+		// console.log(newArr) 
+		// console.log(arr)
+		
+		
+		// forEach()
+		// arr.forEach((val, index)=>{
+		// 	console.log(val)
+		// 	console.log(index)  // forEach 无法跳出循环， return和 break不起作用
+		// 	if(index <=1) {
+		// 		return;
+		// 	}
+		// })
+		
+		/* every() 与 some() every()必须满足所有条件，some()只有满足一个也可以 相当于 && 与 || 的区别 */
+		// let res = arr.every((val, index, arr) => {
+		// 	return val.age <= 28
+		// 	// return true  // 不返回true，将只循环一次
+		// })
+		// console.log(res?'都是年轻人':'竟然有老人')
+		
+		// /* some() */
+		// arr.some((val, index, arr) => {
+		// 	console.log(val)
+		// 	console.log(index)
+		// 	console.log(arr)
+		// })
+		
+		/* filter 过滤器*/
+		// const newArr = arr.filter((val, index, arr) => {
+		// 	return val.age <= 28
+		// })
+		// console.log(newArr)
+		
+		/* educe */
+		// let a = [1,2,3,4]
+		// a.reduce((pre, val, key, a)=> { // 没有return返回，这个时候的pre指的时数组的第一个元素 ， val 指的数组的第二个元素；
+		// 	console.log(pre, val) // 1 2， 99 3， 99 4
+		// 	return 99; // 有return 返回，pre指的是return返回的值
+		// })
+		
+		// // 如果传初始值，那么pre第一次指的是初始值，后面指的是return返回的值， val就是数组第一个值，往下
+		// a.reduce((pre, val, key, a)=> {
+		// 	console.log(pre, val)  // 0 1， 99 2，  99 3，  99 4
+		// 	return 99; // 有return 返回，pre指的是return返回的值
+		// }, 0)
+		
+		// reduce统计元素1出现的次数
+		// let a = [1,2,3,4,1,5,1,9,5,4,1,1]
+		// function fn (item, num) {
+		// 	return item.reduce((total, val) => {
+		// 		total += num == val ? 1 : 0
+		// 		return total
+		// 	}, 0)
+		// }
+		// console.log(fn(a, 1))
+		
+		// reduce获取元素中的最大值
+		// let a = [1,2,3,4,1,5,1,9,5,4,1,1]
+		// function fn (arr) {
+		// 	return arr.reduce((pre, val) => {
+		// 		return pre > val ? pre : val
+		// 	})
+		// }
+		// console.log(fn(a))
+		
+		// reduce获取商品大于500的所有商品的名字
+		// let a = [
+		// 	{'name': '苹果', price: 100},
+		// 	{'name': '香蕉', price: 500},
+		// 	{'name': '菠萝', price: 600},
+		// 	{'name': '榴莲', price: 600},
+		// 	{'name': '车厘子', price: 700}
+		// ]
+			
+		// function fn (arr, price) {
+		// 	return arr.reduce((arr, val)=>{
+		// 		if(val.price>price) arr.push(val)
+		// 		return arr
+		// 	},[]).map((item) =>{return item.name})
+		// }
+		// console.table(fn(a, 500))
+		
+		// reduce、filter、new Set() 数组去重 ， includes()查找数组是否包含某个元素
+		// let a = [1,2,3,1,5,2,3,4,8]
+		// function fn(arr) {
+		// 	return arr.reduce((arr, val) => {
+		// 		if(arr.includes(val) === false) {
+		// 			arr.push(val)
+		// 		}
+		// 		return arr
+		// 	}, [])
+		// }
+		// console.table(fn(a))
+		
+		// let a = [1,2,3,1,5,2,3,4,8]
+		// function fn(arr) {
+		// 	const res = new Map()
+		// 	console.log(res)
+		// 	return arr.filter((val) => !res.has(val) && res.set(val))
+		// }
+		// console.table(fn(a))
+		
+		let a = [1,2,3,1,5,2,3,4,8]
+		let newArr = [...new Set(a)]
+		console.log(newArr)
+		
+		let sa = '12566'
+		let b = '6'
+		var re =new RegExp(b,'g');
+		console.log(re)
+		console.log(sa.replace(re, '9'))
+		
+		
+	</script>
+</html>

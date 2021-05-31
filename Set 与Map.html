@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/* Set: 不能添加重复数据 , 没有键名；注意数字3和字符串'3'是不同的元素。*/
+		// let set =  new Set()
+		// set.add(1)
+		// set.add(1)
+		// console.log(set)
+		
+		/* Set().size 获取元素的数量 */
+		//console.log(new Set([1,2,3]).size) // 3
+		
+		/* Set().has() 判断是否存在某个元素 */
+		// console.log(new Set([1,2,3]).has(1)) // true
+		
+		/* Set().delete() 删除元素 */
+		// let set = new Set([1,2,3])
+		// console.log(set.delete(1)) // true 返回真代表已经删除掉了
+		// console.log(set.values()) // 查看元素
+		
+		/* Set().clear() 彻底清空*/
+		// let set = new Set([1,2,3])
+		// console.log(set.clear())
+		// console.log(set.size)
+		
+		/* Set 类型转换数组 */
+		// let set = new Set([1,2,3])
+		// console.log(Array.from(set))
+		// console.log([...set])
+		
+		// let set = new Set('123456789')
+		// let arr = [...set].filter((val) => {
+		// 	return val < 5
+		// })
+		// console.log(arr)
+		
+		/* Set 数组去重 */
+		// let arr = [1,2,3,1,2,5,8,9]
+		// console.log([...new Set(arr)])
+		
+		/* Set可以通过forEach和for of 来遍历 */
+		//let set = new Set(['hah','gg','cc','dddd'])
+		// set.forEach((val, key) => {
+		// 	console.log(val) // hah gg cc dddd
+		// 	console.log(key) // hah gg cc dddd
+		// })
+		
+		// for(const val of set) {
+		// 	console.log(val) // hah gg cc dddd
+		// }
+		
+		/* 并集 */
+		// let a = new Set([1,2,3,4,5])
+		// let b = new Set([4,5,6,7,8,9])
+		// console.log(new Set([...a, ...b]))
+		/* 差集 */
+		// console.log(
+		//   new Set([...a].filter((val)=>{
+		// 	  return !b.has(val)
+		//   }))
+		// )
+		/* 交集 */
+		// console.log(
+		//   new Set([...a].filter((val)=>{
+		// 	  return b.has(val)
+		//   }))
+		// )
+		
+		/* WeakSet 必须是引用类型*/
+		// let set = new WeakSet()
+		// set.add([1,2,3])
+		// console.log(set)
+		
+		/* Map类型 是键值的形式*/
+		// let map = new Map()
+		// map.set([1,2], ['hah','hh'])
+		// console.log(map)
+		// let maps = new Map([[1,2], ['hah','hh']])
+		// console.log(maps)
+		
+		/* Map的增加,取值,删除 */
+		// let obj = {
+		// 	name: 'cy'
+		// }
+		// let map = new Map()
+		// map.set(obj, 'hah')
+		// map.set('jj','bbb')
+		// console.log(map.has(obj)) // 看元素是否存在
+		// console.log(map.delete(obj))
+		// console.log(map.clear())
+		// console.log(map)
+		// console.log(
+		// 	map.get(
+		// 		{
+		// 			name: 'cy'
+		// 		}
+		// 	)
+		// )
+		
+		
+		/* 遍历map类型 */
+		// let map = new Map([[1,'hah'], [2,'bu']])
+		// for(const [val, key] of map) {
+		// 	console.log(val, key)
+		// }
+		// map.forEach((val, key) => {
+		// 	console.log(val, key)
+		// })
+		
+		/* map类型转换 */
+		let map = new Map([[1,'hah'], [2,'bu']])
+		console.log([...map]) // map类型转换成数组
+		console.log([...map.keys()]) // 转换map的键为数组
+		console.log([...map.values()]) // 转换map的值为数组
+	</script>
+</html>

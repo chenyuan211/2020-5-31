@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*
+		  1、箭头函数语法上比普通函数更简洁
+		  function a (n) {
+		     return n+1
+		  }
+		  let b = n => n + 1
+		*/
+	   
+	   
+	   /*
+	    2、箭头函数没有自己的this，通过call，apply，bind也不能改变this指向
+		箭头函数的this继承函数上下文的this
+		let c = {
+			name: 'cy',
+			age: 18
+		}
+		function a () {
+		   console.log(this) // 这里的this指向的是 c对象
+		}
+		a.call(c)
+		
+		let b = () => {console.log(this)} // 这里的this指向windows
+		b.call(b)
+	   */
+	  
+	   /*
+	    3、箭头函数不能被new执行，（因为箭头函数没有prototype）
+	   */
+	  
+	</script>
+</html>

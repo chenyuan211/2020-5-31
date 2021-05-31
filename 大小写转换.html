@@ -1,0 +1,50 @@
+<html> <head> 
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"> <title>5</title>
+ <script> 
+    /*
+	  for循环转换方法
+	*/
+	function test(){ 
+	   var temp = "hAPPY,i'm a student,NOW"; var temp1 = ""; 
+
+	   for(var i=0; i<temp.length; i++){
+		  /* ********FOUND********* */
+		  var ch = temp.substr(i,1); 
+		  var as = temp.charCodeAt(i);
+		  if(65<=as&&as<=90){   // 通过ASCII查询大写字母对应的数值
+			 /* ********FOUND********* */
+			 temp1+=ch.toLowerCase(); }
+		  else if(97<=as&&as<=122){ // 通过ASCII查询小写字母对应的数值
+			 /* ********FOUND********* */
+			 temp1+=ch.toUpperCase();}
+		  else{ 
+			 temp1+=ch; } } 
+		  document.write("转换之前"+temp+"<br>"+"转换之后"+temp1); 
+	} 
+	  
+	/*
+	  正则表达式转换方法
+	*/
+	let a = "hAPPY,i'm a student,NOW,哈哈哈哈哈";
+	a = a.replace(/[a-zA-Z]/g, res => {
+		return res.toUpperCase() === res ? res.toLowerCase() : res.toUpperCase()
+	})
+	
+	let b = "hAPPY,i'm a student,NOW,哈哈哈哈哈";
+	console.log(b.length)
+	b.replace('student', (res, index)=>{
+		console.log(res)
+		console.log(index)
+		
+	})
+	let c = 'abc'
+	c.replace('a', (res, index)=>{
+		console.log(res)
+		console.log(index)
+	})
+</script> 
+</head> 
+<body>
+<!-- ********FOUND********* -->
+点击转换大小写<input type="button" value="转换" onclick="test()"> </body> </html> 
+

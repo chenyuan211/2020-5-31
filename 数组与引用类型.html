@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/* 1.b = a 引用类型是用的同一个内存地址 */
+			// const a = [1,2,3,4,5,6]
+			// let b = a
+			// b[2]='我改变，a也得变，因为我们用的是同一个内存地址'
+			// console.log(b)
+			// console.log(a)
+			
+		/* 2. b = a 值类型就不是同一个内存 */
+			// const a = 1
+			// b = a
+			// b = 5
+			// console.log(a)
+			// console.log(b)
+		
+		/* 3.const 常量 */
+			// const a = 1
+			// a = 2 // 报错
+			
+			// const b = [1,2,3]
+			// b[1] = 5 
+			// console.log(b) // [1,5,3]
+		
+		/* 4.Array.of 与new Array */
+			// let a = new Array(5) // 当new Array()只有一个值时，就会创建长度为5的空数组
+			// console.log(a.length) // 5
+			// console.log(a[2]) // undefined
+			
+			// let a =Array.of(1)
+			// console.log(a) // [1]
+		
+		/* 5.数组的类型检测与转换 */
+			/* (1)Array.isArray() 可以来判断一个值是否为数组 */
+				// let a = 4
+				// let b = [5,6]
+				// console.log(Array.isArray(a)) // false
+				// console.log(Array.isArray(b)) // true
+			
+			/* (2)字符串转数组 */
+				// let arr = '6666689'
+				// console.log(arr.split(''))
+				// console.log(Array.from(arr))  
+				// Array.from(arr,fn) 第一个想要转换成数组的伪数组对象或可迭代对象。第二个参数，新数组中的每个元素会执行该回调函数
+				// Array.from() 从一个类似数组或可迭代对象中创建一个新的，浅拷贝的数组实例
+			
+			/* (3) 展开运算符*/
+				// let a = [1,2,3,5]
+				// let b = ['h', 'g', 'r']
+				// console.log([...a,...b])
+				
+			/* 4.结构函数 在对象利用的比较多*/
+				// 'use strict'; // 严格模式 主要有以下几个：错误检测、规范、效率、安全、面向未来
+				// let [name, age] = ['hah', 18]
+				// console.log(name)
+				
+			/* 5. 数组添加、删除、修改的多种方式*/
+					// let a = [1,2]
+					// a[a.length] = 3 // 第一种
+					// console.log(a)
+					
+					// let b = [5,6,8]
+					// let c = [8,9,8]
+					// console.log([...c,...b]) // 第二种
+					
+					// let d = [1,5,8]
+					// d = d.push(89)
+					// console.log(d) // 第三种
+					
+					// let arr = [{name: 'cy', age: 18}]
+					// let list = [{name: 'hha', age: 20}]
+					// arr.push(...list) // 两个数组合并
+					// console.log(arr)
+				
+					// let a = [1,2,3]
+					// // a.pop() // pop() 删除数组最后一位
+					// // a.push(6) // // push() 从数组末尾最加
+					// // a.unshift(8) // 从数组前面插入数据
+					// // a.shift() // 删除数组最前面的一委
+					// a.fill(6,1,2) // 指定位置覆盖数据 第一个值代表要覆盖的值； 第二个位置代表下标开始； 第二个代表下标结束
+					// console.log(a)
+					
+			// slice 原数组不会改变
+				// let a = [1,2,3,4]
+				// let b = a.slice(1,2) // 从下标1截取到下标2
+				// console.log(b) // [2]
+				// console.log(a) // [1,2,3,4]
+				
+			// splic 原数组会改变
+				//let a = [1,2,3,5,6,9,8,7]
+				// let b = a.splice(0,2)
+				// console.log(b) // [1,2] 从0开始截取2个
+				// console.log(a) // [3]
+				// a.splice(0,2, '我被替换了，好气哦') 
+				//a.splice(1,0, '还好我没有被替换，只是在我后面插入了数据；happy') 
+				//console.log(a)
+				//a.splice(a.length,0,'我在末尾追加了元素')
+				//console.log(a)
+				
+			// slice 与 splic比较: splic有删除、替换、新增功能
+			
+			// 数组的拆分与合并
+				// let a = '123,459'
+				// console.log(a.split(',')) // 字符串转换数组
+				// let b = [1,2,3]
+				// console.log(b.join('-')) // 数组转换字符串
+				// let c = [1,2,3,5,8]
+				// let d = [5,8,9]
+				// console.log([...c,...d]) // 数组合并
+				// console.log(c.concat(d)) // 数组合并
+				// // copyWithin() 方法用于从数组的指定位置拷贝元素到数组的另一个指定位置中。
+				// console.log(c.copyWithin(2,0,2)) // 第一个参数复制到指定目标索引位置 // 第二个参数元素复制的起始位置。 // 第三个参数停止复制的索引位置
+				
+			
+			// 查找元素
+			let a = [1,2,3,2,8,'9']
+			console.log(a.indexOf(2)) // 从左侧查找元素所在的位置
+			console.log(a.lastIndexOf(2)) // 从右侧查找元素所在的位置
+			console.log(a.lastIndexOf(9)) // -1，是严格类型匹配，所以查找不到
+			let b = '5283633'
+			console.log(b.includes(6)) // true includes()方法用于判断字符串是否包含指定的子字符串
+			
+			
+	</script>
+</html>

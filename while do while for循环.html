@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/* 1.while 先有条件，通过条件才能循环*/
+		// 变量初始化
+		// 条件判断
+		// 变量更新
+		let a = 0
+		while(a <= 5) {
+			console.log(a)
+			a++
+		}
+		
+		/* 2. do while  循环至少执行一次，即便条件为 false，因为代码块是在条件语句判断前执行 */
+		do {
+			console.log('我都会执行一次')
+		} while (false)
+		
+		/* 3.for 循环 杨辉三角 */
+		for (let i = 0; i < 5; i++) {
+			for(let j = 5 - i; j > 0; j--) {
+				document.write("<span style='color: white;'>^</span>")
+			}
+			for(let n = i*2 - 1; n>0; n--) {
+				document.write('*')
+			}
+			document.write("<br/>")
+		}
+	</script>
+</html>

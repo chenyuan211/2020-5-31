@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var P = function(){}
+		P.prototype.aaa = function () {
+		    alert("ddd")
+		}
+		
+		var a = new P(),
+		    b = new P();
+		
+		b.prototype = P;
+		b.prototype.aaa = function() {
+		    alert("cc")
+		}
+		
+		var c = Object.create(null),
+		    d = new Object();
+		
+		console.log(P.__proto__); 
+		console.log(P.prototype); 
+		console.log(a.__proto__); 
+		console.log(a.prototype); 
+		console.log(b.prototype); 
+		console.log(c.__proto__); 
+		console.log(d.__proto__); 
+		console.log(Number.__proto__); 
+		console.log(Number.prototype); 
+		console.log(Function.__proto__); 
+		console.log(Function.prototype); 
+		console.log(Function.prototype.__proto__);
+		console.log(Object.__proto__); 
+		console.log(Object.prototype); 
+		console.log(Object.prototype.__proto__);
+	</script>
+</html>

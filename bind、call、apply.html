@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// bind 新建一个方法，第一个参数可以改变this的指向
+		// bind 会返回一个新的函数，（不调用函数）
+		// call 也是改变函数的this，但会直接调用函数,直接写多个参数
+		// apply 也是改变函数的this，但会直接调用函数,第二个参数需传数组
+		// call 与 apply 与 bind 都是function prototype 上的方法
+		var a = 123
+		function fn() {
+			console.log(this.a)
+		}
+		fn() // 这里的this指向的是windows
+		var list = {
+			a: 'abc'
+		}
+		let fn1 = fn.bind(list)
+		fn1() // 这里的this指向的是list对象
+	</script>
+</html>

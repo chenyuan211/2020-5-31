@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		new Promise(resolve=>{
+			resolve('成功了')
+		}).then(res=>{
+			console.log(res)
+			return 'aaaaaa'
+		}).then(val=>{
+			console.log(val)
+		})
+		let P = new Promise(resolve=>{ resolve('成功了') })
+		console.log(new Promise(resolve=>{ resolve('成功了') })) // resolved 成功状态
+		console.log(P.then(res=>{}))  // pending状态，证明then方法又重新打开了新的promise，为准备状态
+	</script>
+</html>

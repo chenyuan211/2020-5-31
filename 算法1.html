@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		/*
+		  冒泡排序
+		  let a = [6,9,8,5,4,2]
+		  for(let i = 0; i<a.length-1; i++) {
+		  	for(let j = 0; j <a.length-i-1; j++) {
+		  		if(a[j]>a[j+1]) {
+		  			[a[j],a[j+1]] = [a[j+1], a[j]]
+		  		}
+		  	}
+		  }
+		  console.log(a)
+		*/
+		
+		
+		/*
+		  颠倒元素
+		  let a = 'abc'
+		  a = a.split('')
+		  a = a.reverse() // 用于颠倒数组中元素的顺序
+		  a = a.join('')
+		  console.log(a)
+		*/
+	   
+	   /*
+	    sort 排序
+		let a = [1,2,2,3,6,9,8,7,8,6]
+		let b = [5,10,500,600,20,30]
+		a.sort()
+		b.sort((a, b)=>{
+			return a -b 
+		})
+		console.log(a)
+		console.log(b)
+	   */
+	  
+	    /*
+		  set() 去重
+		  let a = [1,2,3,2,5,6,5,1,7,9,8]
+		   console.log([...new Set(a)])
+		*/
+		
+		/*
+		  async 函数返回一个 Promise 对象，可以使用 then 方法添加回调函数。
+		  async function fn () {
+		  	console.log(1111)
+		  }
+		  console.log(fn()) // 返回一个Promise 对象
+		  fn().then(res=>{
+		  	console.log(555)
+		  })
+		*/
+	   
+	    /*
+		  插入排序
+		  let a = [1,5,8,2,3,4]
+		  let b = [a[0]]
+		  for(let i = 1; i < a.length; i++) {
+		  	for(let j = b.length-1; j>=0; j--) {
+		  		if(a[i]>b[j]) {
+		  			b.splice(j+1,0,a[i])
+		  			break
+		  		}
+		  		if(j === 0) {
+		  			b.unshift(a[i])
+		  		}
+		  	}
+		  }
+		  console.log(b)
+		*/
+	   
+	   /*
+	    链式方法
+		console.log((5).add(3).minus(2))
+		(function(){
+				console.log(this)
+				function add(n){
+					return this + n
+				}
+				function minus (n) {
+					return this - n
+				}
+				Number.prototype.add = add
+				Number.prototype.minus = minus
+		}())
+		console.log((5).add(3).minus(2))
+	   */
+		
+	</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="">
+			<h3>浏览器的组成：</h3>
+			<p>1. User InterFace 用户界面，我们所能看到的浏览器</p>
+			<p>2. Browser engine 浏览器引擎，用来查询和操作渲染引擎</p>
+			<p>3. Rendering engine 用来显示请求的内容，负责解析HTML.CSS，并把解析的内容存下来</p>
+			<p>4. Networking 网络，负责发送网络请求</p>
+			<p>5. JavaScript Interpreter(解析者) js解析器，负责执行js代码</p>
+			<p>6. Ui backend Ui后端，用来绘制类似组合框和弹出框的</p>
+			<p>7. Data Persistence 持久化 （数据持久化）数据存储 cookie/Html5中的sessionStroage</p>
+			<h3>js的执行过程：（js运行分为两个阶段：预解析、执行）</h3>
+			<p>1.预解析</p>
+			<p>（1）全局预解析（所有变量和函数声明都会提前：同名的函数和变量，函数优先级高）</p>
+			<p>（2）函数内部解析（所有的变量、函数、形参都会参与解析）</p>
+			<p>2.执行</p>
+			<p>（1）先预解析全局作用域，然后在执行全局作用域中的代码</p>
+			<p>（2）在执行代码中，遇到函数调用，就会先进行函数预解析，然后在执行函数内的代码</p>
+		</div>
+	</body>
+</html>

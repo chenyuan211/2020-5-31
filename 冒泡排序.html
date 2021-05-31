@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let a = [5,8,7,1,2,4,15,18,9]
+		/*
+		  sort排序
+		  a.sort((a, b)=>{
+		  	return a - b
+		  })
+		  console.log(a)
+		*/
+	   
+	   /*
+	     冒泡排序 升序
+	   */
+	  // for(let i = 0; i < a.length-1; i++) {
+		 //  for(let j = 0; j <a.length - 1 - i; j++) {
+			//   if(a[j] > a[j+1]) {
+			// 	let temp = a[j];
+			// 	a[j] = a[j+1];
+			// 	a[j+1] = temp;
+			//   }
+		 //  }
+	  // }
+	  // console.log(a)
+	  
+	  /*
+	    冒泡排序 降序
+	  */
+	  for(let i = 0; i < a.length-1; i++) {
+	  		  for(let j = 0; j <a.length - 1 - i; j++) {
+	  			  if(a[j] < a[j+1]) {
+					  [a[j],a[j+1]] = [a[j+1], a[j]]
+	  			  }
+	  		  }
+	  }
+	  console.log(a)
+	  
+	</script>
+</html>

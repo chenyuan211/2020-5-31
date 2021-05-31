@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function fn(delay) {
+			return new Promise(resolve=>{
+				return setTimeout(()=>{
+					resolve()
+				}, delay)
+			})
+			
+		}
+		fn(2000).then(res=>{
+			console.log('我是过两秒后出来的哦')
+			return fn(2000)
+		}).then(res=>{
+			console.log('我是再过两秒后出来的哦')
+		})
+	</script>
+</html>

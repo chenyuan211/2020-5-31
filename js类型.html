@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="">
+			<h3>1.基本(值)类型</h3>
+			<p>number</p>
+			<p>string</p>
+			<p>null</p>
+			<p>undefined</p>
+			<p>Boolean</p>
+			<h3>2.对象(引用)类型</h3>
+			<p>Object: 任意对象</p>
+			<p>function：特别对象（可执行）</p>
+			<p>arry：特别对象（数值下标,内部数据时有序的） </p>
+			<h3>3.判断类型</h3>
+			<p>typeof(返回的是数据类型的字符串)</p>
+			<p>instanceof(判断对象的具体类型)</p>
+			<p>==(会做数据类型转换)  ===</p>
+			<h3>4.typeof与instanceof的区别：</h3>
+			<p>typeof判断所有变量的类型，返回值有number，boolean，string，function，object，undefined。</p>
+			<p>typeof对于丰富的对象实例，只能返回"Object"字符串。</p>
+			<p>instanceof用来判断对象，代码形式为obj1 instanceof obj2（obj1是否是obj2的实例），obj2必须为对象，否则会报错！其返回值为布尔值。</p>
+			<p>instanceof可以对不同的对象实例进行判断，判断方法是根据对象的原型链依次向下查询，如果obj2的原型属性存在obj1的原型链上，（obj1 instanceof obj2）值为true。</p>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		let a;
+		console.log(a === undefined) // true
+		console.log(typeof a === 'undefined') // true
+		
+		
+		const b = {
+			b1: [1, 2, 3],
+			b2: function(){
+				
+			}
+		}
+		console.log(b instanceof Object)  // true
+		console.log(b.b1 instanceof Array) // true
+		console.log(b.b1 instanceof Object) // true
+		console.log(b.b2 instanceof Function) // true
+		console.log(b.b2 instanceof Object) // true  函数也是对象
+	</script>
+</html>

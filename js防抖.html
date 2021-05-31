@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="input" value="" />
+	</body>
+	<script type="text/javascript">
+		function fn (fun, delay) {
+			let timer;
+			return (args)=>{
+				clearInterval(timer)
+				timer = setTimeout(()=>{
+					fun(args)
+				}, delay)
+				
+			}
+		}
+			
+		function inputFn(value) {
+			console.log(value)
+		}
+		let Input = document.getElementById('input')
+		const debounceInput = fn(inputFn, 5000)
+		Input.addEventListener('keyup', (e)=> {
+			debounceInput(e.target.value)
+		})
+	</script>
+</html>

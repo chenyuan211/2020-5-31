@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		const  arr = [1,2,3,5,6,8,3,2,1]
+		const arr1 = new Set(arr)
+		console.log(arr1.entries) // 去重
+		arr1.entries().map((res, index)=>{
+			console.log(index, res)
+		}) 
+		const arry = [
+			{name: 'chenyuan', id: 2},
+			{name: 'chenyuan1', id: 3},
+			{name: 'chenyuan', id: 2}
+		]
+		console.log(new WeakSet(arry)) // 去重
+	</script>
+</html>

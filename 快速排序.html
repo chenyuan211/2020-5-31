@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//快速排序法,主要是取中间值,两边值与中间值比较,比中间值大的放到中间值得后边,小的放到前面
+		let a = [1,8,5,7,9,50,20,2,3]
+		function sort(a){
+			if(a.length<=0) {
+				return a
+			}
+			let index = Math.floor(a.length/2)
+			let m = a.splice(index, 1)[0]
+			let leftArr = []
+			let rightArr = []
+			for(let i = 0; i < a.length; i++) {
+				m > a[i] ? leftArr.push(a[i]) : rightArr.push(a[i])
+			}
+			return sort(leftArr).concat(m,sort(rightArr))
+			
+		}
+		sort(a)
+		console.log(sort(a))
+	</script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#main {
+		    width: 200px;
+		    height: 200px;
+		    display: flex;
+		    /* flex-flow:wrap; */
+		}
+		
+		#main div {
+		    width: 50px;
+		    height: 50px;
+			word-break: break-all;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2; /* 这里是超出几行省略 */
+			overflow: hidden;
+		}
+		#demo {
+			    width: 50px;
+			    word-break: break-all;
+			    text-overflow: ellipsis;
+			    display: -webkit-box;
+			    -webkit-box-orient: vertical;
+			    -webkit-line-clamp: 2; /* 这里是超出几行省略 */
+			    overflow: hidden;
+		}
+	</style>
+	<body>
+		<div id="main">
+		  <div>5555555555555555555555</div>
+		  <div>6666666666666666666666</div>
+		</div>
+		<div id="demo">
+			555555555555555555555555555555555555555555555
+		</div>
+	</body>
+	<script type="text/javascript">
+		// function Foo() {
+		//     var i = 0;
+		//     return function() {
+		//         console.log(i++);
+		//     }
+		// }
+		 
+		// var f1 = Foo(),
+		//     f2 = Foo();
+		// f1();
+		// f1();
+		// f2();
+
+	   var person={fname:"John",lname:"Doe",age:25};
+	   var txt="";
+	   for (x in person)
+	   {
+	     txt=txt + person[x];
+	   }
+	   // alert(txt);
+	   var test=new Boolean(0);
+	   document.write(test);
+	   var k = 0;
+	   for(var i=0,j=0;i<10,j<6;i++,j++){
+	       k += i + j;
+	   }
+	   console.log(k)
+	   var m= 1, j = k = 0; 
+	       function add(n) { 
+	           return n = n+1; 
+	   　 } 
+	       y = add(m); 
+	       function add(n) { 
+	           return n = n + 3; 
+	       } 
+	   z = add(m); 
+	   let a = '55555'
+	   console.log()
+	</script>
+</html>

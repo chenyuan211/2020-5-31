@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="">
+			<h3>静态成员：直接使用对象来调用</h3>
+			<h3>实例成员：对象的另一中说法(构造函数中的成员就是实例成员)</h3>
+			<p>当有很多个对象的时候就用构造函数来创建对象</p>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 静态成员
+		let myMath = {
+			max:()=>{
+				console.log(22222)
+			}
+		}
+		myMath.max()
+		
+		// 实例成员
+		function Fn (name, age) {
+			this.name = name
+			this.age = age
+			this.sayHi = ()=>{
+				console.log(55555)
+			}
+			
+		}
+		
+		let fn = new Fn('chenyuan', 18)
+		fn.sayHi()
+	</script>
+</html>

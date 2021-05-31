@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		/* function Fn(name, age) {
+			this.name = name
+			this.age = age
+			// 多个对象，会储存多个sayHi方法
+			this.sayHi = ()=>{
+				console.log(55555)
+			}
+		}
+		
+		const fn = new Fn('chenyuan', 18)
+		const fn2 = new Fn('chenyuan', 19)
+		fn.sayHi()
+		fn2.sayHi()
+		console.log(fn.sayHi === fn2.sayHi)  // false 说明调用的不是同一个sayHi， 是多个对象，会储存多个sayHi方法，引起的 
+		*/
+		
+		/* // 解决多个对象，会储存多个sayHi方法
+		// 每个构造函数都有一个属性原型/原型对象
+		function Fn(name, age) {
+			this.name = name
+			this.age = age
+		}
+		
+		Fn.prototype.sayHi = function () {
+			console.log('大家好我是' + this.name)
+		}
+		
+		const fn = new Fn('chenyuan', 18)
+		const fn2 = new Fn('陈媛', 19)
+		fn.sayHi()
+		fn2.sayHi()
+		console.log(fn.sayHi === fn2.sayHi)  // true 说明调用的是同一个sayHi */
+		
+		
+		// 当调用对象的方法时，先去找对象本身的方法或属性
+		// 如果对象没有该方法或属性，就会去找原型中的属性和方法
+		// prototype是构造函数中的原型
+		function Fn(name, age) {
+			this.name = name
+			this.age = age
+			this.sayHi = function () {
+				console.log('我优先于原型')
+			}
+		}
+		
+		Fn.prototype.sayHi = function () {
+			console.log('大家好我是' + this.name)
+		}
+		
+		const fn = new Fn('chenyuan', 18)
+		const fn2 = new Fn('陈媛', 19)
+		fn.sayHi()
+		fn2.sayHi()
+		console.dir(fn)  // __proto__ 就等于Fn.prototype
+		console.log(Fn.prototype === fn.__proto__) // true
+		// 在原型中有一个属性constructor 就是构造函数
+		// 对象可以访问原型中的所有属性
+		
+		// constructor的作用，就是记录该对象下创建的构造函数
+		console.log(fn.constructor)
+		
+		
+	</script>
+</html>

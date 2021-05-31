@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 1.常见的回调函数:
+		// (1)dom事件回调函数
+		// (2)定时器
+		// (3)ajax请求回调函数
+		// (4)生命周期回调函数
+		// (5)promise
+		// (6)forEach
+		// (7)map
+		// (8)filter (过滤)
+		// (9)reduce
+		function fun(c,callback){
+			console.log(c);
+			a = 1
+			b = 2
+			callback(a, b);// 调用过程可以传递参数
+		}
+		
+		// es6
+		fun(3,(a, b)=>{
+			console.log(a,b)
+			console.log("回调执行了")
+		});
+		
+	</script>
+</html>

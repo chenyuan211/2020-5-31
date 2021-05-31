@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*
+		 1.pending 准备阶段
+		 2.resolved 成功状态
+		 3.rejected 拒绝状态 
+		*/
+		// new Promise((resolve, reject)=>{
+		// 	resolve('成功状态')
+			
+		// }).then(res=>{
+		// 	console.log('成功1')
+			
+		// },reason=>{
+		// 	console.log('失败')
+		// }).then(res=>{
+		// 	console.log('成功2')
+		// },reason=>{
+		// 	console.log('失败')
+		// })
+		
+		/* 
+		 微任务与宏任务执行顺序 
+		*/
+	   
+		console.log('同步立刻执行') // 同步
+		setTimeout(()=>{ // 宏任务
+		 console.log('setTimeout')	
+		},0)
+		
+		// 同步立刻执行 setTimeout
+		
+		new Promise((resolve)=>{ // 微任务
+			console.log('Promise') // 同步
+		})
+		
+		// 同步立刻执行  Promise  setTimeout
+		
+		new Promise((resolve)=>{
+			resolve()
+			console.log('Promise1') // 同步
+		}).then(res=>{
+			console.log('成功的结果')
+		})
+		console.log('chenyuan') // 同步
+		// 同步立刻执行  Promise  Promise1  chenyuan  成功的结果  setTimeout
+		
+	</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 原型链：每个被实例对象都有proto对象，它指向了构造该对象的构造函数的prototype属性。
+		// 同时该对象可以通过proto对象来寻找不属于自身的属性，
+       // 原型：就是实现继承过程中产生的一个概念。
+		function Fn(name, age) {
+			this.name = name
+			this.age = age
+		}
+		
+		Fn.prototype.sayHi = function () {
+			console.log('大家好我是' + this.name)
+		}
+		
+		Fn.prototype.test = 'test'
+		
+		const fn = new Fn('chenyuan', 18)
+		const fn2 = new Fn('陈媛', 19)
+		fn.sayHi()
+		fn2.test
+		
+		// fn原型对象的原型对象 = object的原型对象
+		console.log(fn.__proto__.__proto__ === Object.prototype) // true
+		
+		/* 
+		// 所有的对象都有toString()方法
+		// 对象可以访问原型中的所有属性
+		console.log(fn.toString())
+		console.dir(fn)  // __proto__ 就等于Fn.prototype
+		console.dir(fn.__proto__)
+		console.dir(fn.__proto__.__proto__)  // 原型对象的原型对象里面就有toString */
+		
+		// 读取属性，现在对象本身查找属性，如果没有，会去原型上去查找
+		console.log(fn2.test)
+		console.dir(fn2.__proto__)
+		
+		// 设置属性
+		// test属性在原型对象上，而设置属性的值是不会搜索原型链
+		// 而是直接给对象新增一个test属性
+		fn2.test = '新的赋值'
+		console.log(fn2.test)  //  新的赋值
+		console.log(fn.test)  // test
+		
+		console.dir(fn2)
+		/* age: 19
+		name: "陈媛"
+		test: "新的赋值"
+		__proto__: Object */
+		
+		console.dir(fn)
+		/* age: 18
+		name: "chenyuan"
+		__proto__: Object */
+		
+		////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		// 数组或者string中的原型是不可以修改的
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

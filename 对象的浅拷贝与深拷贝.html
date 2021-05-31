@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/* 浅拷贝:不能复制多层次的对象 */
+			// 第一种方法
+				// let a = {name: 'cy', age: 20}
+				// let b = {}
+				// b.name='hah'
+				// b.age = 20
+				// console.log(b)
+				// console.log(a)
+			
+			//第二种方法
+				// let a = {name: 'cy', age: 20}
+				// let b = {}
+				// for(const key in a) {
+				// 	b[key] = a[key]
+				// }
+				// b.sex='女'
+				// console.log(b)
+				// console.log(a)
+			
+			// 第三种方法
+			//Object.assign方法用来将源对象（source）的所有可枚举属性，复制到目标对象（target）。
+			//它至少需要两个对象作为参数，第一个参数是目标对象，后面的参数都是源对象。
+				// let a = {name: 'cy', age: 20}
+				// let b = Object.assign({}, a)
+				// b.name = 'hah'
+				// console.log(b)
+				// console.log(a)
+			
+			//第四种方法 使用展开语法
+			let a = {
+				name: '5555',
+				age: 55
+			}
+			let b = {...a}
+			b.name = '我是浅拷贝'
+			console.log(a)
+			console.log(b)
+				
+		/* 深拷贝： 复制多层次的对象 */
+		    //第一种递归方法深拷贝
+				// let a = {
+				// 	name: '555',
+				// 	list: {
+				// 		name: '5555', age: 50
+				// 	}
+				// }
+				// 递归方法深拷贝
+				// function copy (obj) {
+				// 	const res = {}
+				// 	for(const key in obj) {
+				// 		res[key] = typeof obj[key] === 'object' ? copy(obj[key]) : obj[key]
+				// 	}
+				// 	return res
+					
+				// }
+				// let b = copy(a)
+				// b.list.name = '递归深拷贝'
+				// console.log(b)
+				// console.log(a)
+			
+			// let a = {
+			// 	name: '555',
+			// 	list: {
+			// 		name: '5555', age: 50
+			// 	},
+			// 	arr: [
+			// 		{name: '复制结构', id: 1}
+			// 	]
+			// }
+			// //console.log(Object.entries(a))
+			// // Object.entries()从数组创建一个可迭代对象， 该对象包含了数组的键值对：
+			// function copy (obj) {
+			// 	const res = obj instanceof Array?[]:{}
+			// 	for(const [k,v] of Object.entries(obj)) {
+			// 		res[k] = typeof v === 'object' ? copy(v) : v
+			// 	}
+			// 	return res	
+			// }
+			// let b = copy(a)
+			// console.log(a)
+			// b.arr[0].name = '我是深拷贝'
+			// console.log(b)
+			
+	</script>
+</html>
